@@ -1,0 +1,151 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Acids & Bases Quiz</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Silkscreen&family=Space+Mono:wght@400;700&family=Pinyon+Script&display=swap">
+<style>
+/* Layout concept: retro-OS windows floating over a sky-and-field wallpaper. Pixel type for labels, mono for reading. */
+:root{
+  --ink:#10162f; --yellow:#fff200; --blue:#1a0fd6; --chrome:#cfcfd5; --glass:rgba(255,255,255,.82);
+  --red:#d8231a; --o1:#ffb25c; --o2:#f2601a; --ok:#1f8a3b; --bad:#c4281c;
+  --pixel:'Silkscreen','Courier New',monospace; --mono:'Space Mono','Courier New',monospace; --script:'Pinyon Script',cursive;
+}
+*{box-sizing:border-box}
+html{color-scheme:light}
+body{
+  margin:0; min-height:100vh; color:var(--ink); font:15px/1.65 var(--mono);
+  padding-left:max(16px,env(safe-area-inset-left,0px)); padding-right:max(16px,env(safe-area-inset-right,0px));
+  padding-block:28px 56px;
+  background-color:#8fb6e2;
+  background-image:
+    radial-gradient(ellipse 16% 5% at 18% 12%,rgba(255,255,255,.9),transparent 72%),
+    radial-gradient(ellipse 20% 6% at 80% 22%,rgba(255,255,255,.85),transparent 72%),
+    radial-gradient(ellipse 14% 4% at 55% 40%,rgba(255,255,255,.7),transparent 72%),
+    linear-gradient(180deg,#365f9f 0,#7fa9dc 36%,#cfe2f4 55%,#6c9a3a 55.2%,#3c7620 100%);
+  background-attachment:fixed;
+}
+.wrap{max-width:1100px;margin:0 auto}
+a{color:var(--blue)}
+:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+.px{font-family:var(--pixel)}
+.win{background:var(--glass);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);border:2px solid #fff;border-radius:10px;box-shadow:0 6px 0 rgba(10,20,50,.3);overflow:hidden;min-width:0}
+.bar{display:flex;align-items:center;gap:7px;padding:8px 12px;background:linear-gradient(#f6f6f8,#c8c8d0);border-bottom:1px solid #9a9aa6}
+.bar i{width:14px;height:14px;border-radius:50%;border:1px solid rgba(0,0,0,.45);display:block;flex:none}
+.bar i:nth-child(1){background:#e4281e}.bar i:nth-child(2){background:#f5c400}.bar i:nth-child(3){background:#25c02b}
+.bar b{font:400 12px var(--pixel);letter-spacing:.06em;margin-left:8px;text-transform:uppercase;color:#3a3a4a}
+.body{padding:18px 20px 22px}
+.body h2{font:400 20px/1.3 var(--pixel);margin:0 0 10px;letter-spacing:.02em}
+.body p{margin:0 0 12px}
+.pill{display:inline-block;padding:9px 22px;border-radius:999px;border:2px solid #fff;background:linear-gradient(var(--o1),var(--o2));color:#2a1200;font:400 15px var(--pixel);text-decoration:none;box-shadow:0 4px 0 rgba(120,40,0,.55),inset 0 2px 0 rgba(255,255,255,.55);cursor:pointer;letter-spacing:.03em}
+.pill:hover{filter:brightness(1.07)}
+.pill:active{transform:translateY(2px);box-shadow:0 2px 0 rgba(120,40,0,.55),inset 0 2px 0 rgba(255,255,255,.55)}
+.pill[disabled]{opacity:.5;cursor:default;filter:grayscale(.4)}
+.pill.alt{background:linear-gradient(#f4f4f6,#c3c3cc);color:var(--ink);box-shadow:0 4px 0 rgba(30,30,60,.45),inset 0 2px 0 #fff}
+.title{margin:0;color:var(--yellow);text-shadow:3px 3px 0 #000,-1px -1px 0 #000,1px -1px 0 #000,-1px 1px 0 #000;line-height:.95}
+.back{display:inline-block;margin-bottom:18px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+
+.wrap{max-width:820px}
+.title{font-family:var(--pixel);font-size:clamp(2rem,6vw,3.4rem);margin-bottom:8px}
+.sub{color:#fff;text-shadow:1px 1px 0 #000;margin:0 0 22px;font-weight:700}
+.status{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;margin-bottom:18px;display:flex;align-items:center;gap:12px;padding:8px 12px;background:#000;color:#fff;font:400 13px var(--pixel);letter-spacing:.05em}
+.meter{flex:1;height:10px;background:#444;border:1px solid #fff}
+.meter div{height:100%;width:0;background:var(--yellow);transition:width .25s}
+form{display:grid;gap:18px}
+fieldset.win{margin:0;padding:0;border:2px solid #fff}
+legend{padding:0}
+.qh{display:flex;gap:10px;align-items:baseline;padding:14px 18px 4px;font-weight:700}
+.qh span{font:400 14px var(--pixel);background:var(--blue);color:#fff;padding:2px 8px;flex:none}
+.opts{display:grid;gap:8px;padding:8px 18px 16px}
+.opt{display:flex;gap:10px;align-items:flex-start;padding:9px 12px;border:2px solid #b9b9c6;background:#fff;cursor:pointer;border-radius:4px}
+.opt:hover{border-color:var(--blue)}
+.opt input{margin-top:5px;accent-color:var(--blue);flex:none}
+.opt.right{border-color:var(--ok);background:#e6f6ea}
+.opt.wrong{border-color:var(--bad);background:#fbe6e3}
+.why{margin:0;padding:12px 18px 16px;border-top:2px dashed #9a9aa6;background:rgba(255,255,255,.7);font-size:14px}
+.why strong.ok{color:var(--ok)}.why strong.bad{color:var(--bad)}
+.actions{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.result{padding:22px;text-align:center}
+.result .score{font:400 clamp(2.2rem,8vw,3.6rem) var(--pixel);line-height:1.1}
+.result p{margin:8px 0 0}
+</style>
+</head>
+<body>
+<main class="wrap">
+    <h1 class="title">Quiz.exe</h1>
+  <p class="sub">Chapter 3: Brønsted–Lowry, Lewis, pKa and acid strength. Pick one answer per question, then submit.</p>
+  <div class="status" aria-live="polite"><span id="count">0 / 14 answered</span><div class="meter"><div id="bar"></div></div></div>
+  <form id="quiz" novalidate></form>
+  <div class="actions" style="margin-top:22px">
+    <button class="pill" type="submit" form="quiz" id="submit">Submit answers</button>
+    <button class="pill alt" type="button" id="reset">Reset</button>
+  </div>
+  <section class="win" id="result" tabindex="-1" hidden style="margin-top:22px">
+    <div class="bar"><i></i><i></i><i></i><b>result.txt</b></div>
+    <div class="result"><div class="score" id="score"></div><p id="msg"></p></div>
+  </section>
+</main>
+<script>
+var Q=[
+{q:"Which compound is the strongest acid?",o:["H₂O (pKa 15.7)","CH₃COOH (pKa 4.8)","HC≡CH (pKa 25)","NH₃ (pKa 38)"],a:1,w:"The smaller the pKa, the stronger the acid. Acetic acid has the smallest value here."},
+{q:"In an acid–base reaction, the equilibrium always favours formation of…",o:["the stronger acid and the stronger base","the weaker acid and the weaker base","whichever side has more charges","the side with the lower molar mass"],a:1,w:"A strong acid gives away its proton readily, so the products on the weaker side (higher pKa) are favoured."},
+{q:"Acetylene (HC≡CH, pKa 25) reacts with ⁻NH₂. NH₃ has pKa 38. Where does the equilibrium lie?",o:["Reactants, because NH₃ is a weak acid","Equally on both sides","Products, because HC≡CH is the stronger acid","It cannot be predicted from pKa"],a:2,w:"The starting acid (25) has a lower pKa than the conjugate acid (38), so it is the stronger acid and the equilibrium favours the products."},
+{q:"Which hydrogen halide is the strongest acid?",o:["HF","HCl","HBr","HI"],a:3,w:"Element effect: going down the group, the anion gets larger and more stable. Size matters more than electronegativity here."},
+{q:"Which order shows increasing acidity?",o:["ethyne < ethene < ethane","ethane < ethene < ethyne","ethene < ethane < ethyne","ethane < ethyne < ethene"],a:1,w:"Hybridization effect: sp carbon has 50% s-character, sp² has 33% and sp³ has 25%. More s-character gives a more stable conjugate base."},
+{q:"Why is CF₃CH₂OH (pKa 12.4) a stronger acid than CH₃CH₂OH (pKa 16)?",o:["The CF₃ group pulls electron density through σ bonds and stabilizes the conjugate base","The CF₃ group is larger and blocks the proton","Fluorine forms hydrogen bonds with the solvent only","Ethanol has no hydrogen on oxygen"],a:0,w:"This is the inductive effect: electronegative atoms withdraw electron density and stabilize the negative charge."},
+{q:"Acetic acid (pKa 4.8) is much stronger than ethanol (pKa 16) mainly because…",o:["acetate has two resonance structures that spread the negative charge over two O atoms","ethoxide is larger than acetate","acetic acid has more carbon atoms","ethanol is a Lewis acid only"],a:0,w:"Resonance effect: the negative charge in acetate is delocalized, while in ethoxide it stays on one oxygen."},
+{q:"In HCl + H₂O → H₃O⁺ + Cl⁻, which species is the conjugate base?",o:["H₃O⁺","H₂O","HCl","Cl⁻"],a:3,w:"The conjugate base is what forms when the acid (HCl) loses its proton."},
+{q:"A strong acid always has…",o:["a strong conjugate base","a weak conjugate base","no conjugate base","a conjugate base with a higher pKa than water in every case"],a:1,w:"Acidity and basicity are inversely related: a strong acid readily donates a proton and leaves a weak conjugate base."},
+{q:"Which of these is only a Lewis acid, not a Brønsted–Lowry acid?",o:["BF₃","H₂O","CH₃OH","CH₃COOH"],a:0,w:"BF₃ has no hydrogen to donate, but boron lacks a filled valence shell, so it accepts an electron pair."},
+{q:"Why is a carbocation a Lewis acid?",o:["It has a lone pair to donate","It has only six valence electrons, so it can accept an electron pair","It contains an acidic hydrogen","It is always bonded to a halogen"],a:1,w:"Carbocations are electron deficient. An electron-poor species accepts a pair from an electron-rich one."},
+{q:"What is a nucleophile?",o:["An electron-poor species that accepts an electron pair","An electron-rich species that donates an electron pair to an electrophile","Any species that donates a proton","A species with a filled valence shell and no lone pairs"],a:1,w:"Nucleophile means electron-rich, a positive-charge lover. It reacts with an electron-poor electrophile."},
+{q:"Glycolic acid, HOCH₂COOH, compared with acetic acid, CH₃COOH, is…",o:["a weaker acid, because OH donates electrons","a stronger acid, because the OH group withdraws electron density inductively","the same strength, because both have a COOH group","not an acid"],a:1,w:"The electronegative OH on the adjacent carbon stabilizes the conjugate base through the inductive effect."},
+{q:"Which hydrogen is most acidic in HOCH₂CH₂CH₂NH₂?",o:["A C–H hydrogen","An N–H hydrogen","The O–H hydrogen","All are equally acidic"],a:2,w:"Element effect across a row: O is more electronegative than N, which is more than C, so O–H (pKa about 16) beats N–H (about 38) and C–H (about 50)."}
+];
+var form=document.getElementById('quiz'),N=Q.length,submitted=false;
+Q.forEach(function(it,i){
+  var fs=document.createElement('fieldset');fs.className='win';fs.id='q'+i;
+  var h='<div class="bar"><i></i><i></i><i></i><b>question_'+(i+1<10?'0':'')+(i+1)+'</b></div>';
+  h+='<legend class="qh"><span>Q'+(i+1)+'</span>'+it.q+'</legend><div class="opts">';
+  it.o.forEach(function(t,j){h+='<label class="opt"><input type="radio" name="q'+i+'" id="q'+i+'o'+j+'" value="'+j+'"><span>'+t+'</span></label>'});
+  h+='</div><p class="why" hidden></p>';
+  fs.innerHTML=h;form.appendChild(fs);
+});
+function answered(){var n=0;for(var i=0;i<N;i++)if(form.querySelector('input[name=q'+i+']:checked'))n++;return n}
+function upd(){var n=answered();document.getElementById('count').textContent=n+' / '+N+' answered';document.getElementById('bar').style.width=(n/N*100)+'%'}
+form.addEventListener('change',upd);
+form.addEventListener('submit',function(e){
+  e.preventDefault();var score=0,skipped=0;
+  Q.forEach(function(it,i){
+    var fs=document.getElementById('q'+i),sel=form.querySelector('input[name=q'+i+']:checked'),why=fs.querySelector('.why');
+    var labels=fs.querySelectorAll('.opt');
+    labels[it.a].classList.add('right');
+    var ok=sel&&+sel.value===it.a;
+    if(ok)score++;else if(sel)labels[+sel.value].classList.add('wrong');else skipped++;
+    why.innerHTML='<strong class="'+(ok?'ok':'bad')+'">'+(ok?'Correct.':(sel?'Not quite.':'Not answered.'))+'</strong> '+it.w;
+    why.hidden=false;
+    fs.querySelectorAll('input').forEach(function(x){x.disabled=true});
+  });
+  submitted=true;document.getElementById('submit').disabled=true;
+  var r=document.getElementById('result');r.hidden=false;
+  document.getElementById('score').textContent=score+' / '+N;
+  var pct=score/N;
+  document.getElementById('msg').textContent=(pct>=.85?'Solid. You can explain this chapter.':pct>=.6?'Good base. Re-read the explanations on the ones you missed.':'Go back through the slides on pKa and the four factors, then try again.')+(skipped?' ('+skipped+' not answered.)':'');
+  r.focus();r.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion:reduce)').matches?'auto':'smooth',block:'center'});
+});
+document.getElementById('reset').addEventListener('click',function(){
+  form.reset();submitted=false;document.getElementById('submit').disabled=false;
+  document.querySelectorAll('.opt').forEach(function(l){l.classList.remove('right','wrong')});
+  document.querySelectorAll('.why').forEach(function(w){w.hidden=true});
+  form.querySelectorAll('input').forEach(function(x){x.disabled=false});
+  document.getElementById('result').hidden=true;upd();window.scrollTo(0,0);
+});
+upd();
+</script>
+</body>
+</html>
+
+</body></html>
