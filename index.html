@@ -1,0 +1,172 @@
+<title>Acids & Bases Portfolio</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Silkscreen&family=Space+Mono:wght@400;700&family=Pinyon+Script&display=swap">
+<style>
+/* Layout concept: retro-OS windows floating over a sky-and-field wallpaper. Pixel type for labels, mono for reading. */
+:root{
+  --ink:#10162f; --yellow:#fff200; --blue:#1a0fd6; --chrome:#cfcfd5; --glass:rgba(255,255,255,.82);
+  --red:#d8231a; --o1:#ffb25c; --o2:#f2601a; --ok:#1f8a3b; --bad:#c4281c;
+  --pixel:'Silkscreen','Courier New',monospace; --mono:'Space Mono','Courier New',monospace; --script:'Pinyon Script',cursive;
+}
+*{box-sizing:border-box}
+html{color-scheme:light}
+body{
+  margin:0; min-height:100vh; color:var(--ink); font:15px/1.65 var(--mono);
+  padding-left:max(16px,env(safe-area-inset-left,0px)); padding-right:max(16px,env(safe-area-inset-right,0px));
+  padding-block:28px 56px;
+  background-color:#8fb6e2;
+  background-image:
+    radial-gradient(ellipse 16% 5% at 18% 12%,rgba(255,255,255,.9),transparent 72%),
+    radial-gradient(ellipse 20% 6% at 80% 22%,rgba(255,255,255,.85),transparent 72%),
+    radial-gradient(ellipse 14% 4% at 55% 40%,rgba(255,255,255,.7),transparent 72%),
+    linear-gradient(180deg,#365f9f 0,#7fa9dc 36%,#cfe2f4 55%,#6c9a3a 55.2%,#3c7620 100%);
+  background-attachment:fixed;
+}
+.wrap{max-width:1100px;margin:0 auto}
+a{color:var(--blue)}
+:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+.px{font-family:var(--pixel)}
+.win{background:var(--glass);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);border:2px solid #fff;border-radius:10px;box-shadow:0 6px 0 rgba(10,20,50,.3);overflow:hidden;min-width:0}
+.bar{display:flex;align-items:center;gap:7px;padding:8px 12px;background:linear-gradient(#f6f6f8,#c8c8d0);border-bottom:1px solid #9a9aa6}
+.bar i{width:14px;height:14px;border-radius:50%;border:1px solid rgba(0,0,0,.45);display:block;flex:none}
+.bar i:nth-child(1){background:#e4281e}.bar i:nth-child(2){background:#f5c400}.bar i:nth-child(3){background:#25c02b}
+.bar b{font:400 12px var(--pixel);letter-spacing:.06em;margin-left:8px;text-transform:uppercase;color:#3a3a4a}
+.body{padding:18px 20px 22px}
+.body h2{font:400 20px/1.3 var(--pixel);margin:0 0 10px;letter-spacing:.02em}
+.body p{margin:0 0 12px}
+.pill{display:inline-block;padding:9px 22px;border-radius:999px;border:2px solid #fff;background:linear-gradient(var(--o1),var(--o2));color:#2a1200;font:400 15px var(--pixel);text-decoration:none;box-shadow:0 4px 0 rgba(120,40,0,.55),inset 0 2px 0 rgba(255,255,255,.55);cursor:pointer;letter-spacing:.03em}
+.pill:hover{filter:brightness(1.07)}
+.pill:active{transform:translateY(2px);box-shadow:0 2px 0 rgba(120,40,0,.55),inset 0 2px 0 rgba(255,255,255,.55)}
+.pill[disabled]{opacity:.5;cursor:default;filter:grayscale(.4)}
+.pill.alt{background:linear-gradient(#f4f4f6,#c3c3cc);color:var(--ink);box-shadow:0 4px 0 rgba(30,30,60,.45),inset 0 2px 0 #fff}
+.title{margin:0;color:var(--yellow);text-shadow:3px 3px 0 #000,-1px -1px 0 #000,1px -1px 0 #000,-1px 1px 0 #000;line-height:.95}
+.back{display:inline-block;margin-bottom:18px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+
+.hero{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:16px 32px;margin-bottom:30px}
+.title{font-family:var(--pixel);font-size:clamp(2.4rem,8vw,5rem);display:flex;align-items:flex-end;gap:4px;flex-wrap:wrap}
+.title .fl{font-family:var(--script);font-size:1.9em;line-height:.6;margin-right:2px}
+.tag{font:400 13px var(--pixel);background:#000;color:#fff;padding:6px 12px;letter-spacing:.06em;box-shadow:4px 4px 0 var(--blue)}
+.grid{display:grid;gap:22px;grid-template-columns:repeat(12,minmax(0,1fr))}
+.intro{grid-column:span 7}.mon{grid-column:span 5}.c3{grid-column:span 4}.kw{grid-column:span 12}
+.intro .body{font-size:16px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:4px 0 0;padding:0;list-style:none}
+.chips li{font:400 12px var(--pixel);padding:4px 10px;border:2px solid var(--ink);background:#fff;letter-spacing:.04em}
+.mon .body{display:flex;flex-direction:column;gap:14px}
+.screen{border:8px solid #000;outline:6px solid #e9e9ee;background:#111;aspect-ratio:16/10;display:grid;place-items:center;border-radius:2px;margin:4px 6px}
+.screen svg{width:92%;height:auto}
+.screen .t{fill:#fff;font:700 26px var(--mono)}
+.screen .s{fill:#ffe94a;font:400 13px var(--pixel)}
+.cta{display:flex;align-items:center;gap:6px}
+.cur{width:26px;height:30px;margin-left:-4px;margin-top:20px;flex:none}
+.list{list-style:none;margin:0 0 16px;padding:0;display:grid;gap:10px}
+.list li{border-left:4px solid var(--blue);padding-left:10px}
+.list a,.list .todo{font-weight:700}
+.list .todo{color:#555}
+.list small{display:block;color:#444;font-size:12.5px;line-height:1.45}
+.kwbox{border:3px solid #000;box-shadow:7px 7px 0 #000;background:var(--chrome)}
+.kwbox .kt{background:var(--blue);color:#fff;text-align:center;font:400 13px var(--pixel);padding:6px;letter-spacing:.08em}
+.kwbox p{margin:0;padding:18px 20px;text-transform:uppercase;text-align:center;font-size:13px;letter-spacing:.08em;line-height:1.9}
+.foot{margin-top:30px;text-align:center;font:400 12px var(--pixel);color:#fff;text-shadow:1px 1px 0 #000;letter-spacing:.06em}
+@media (max-width:900px){.intro,.mon,.c3{grid-column:span 12}}
+</style>
+<main class="wrap">
+  <header class="hero">
+    <h1 class="title"><span class="fl">A</span><span>CIDS</span><span>&amp; BASES</span></h1>
+    <div class="tag">CEB1013 · ORGANIC CHEMISTRY · CHAPTER 3</div>
+  </header>
+
+  <div class="grid">
+    <section class="win intro" aria-labelledby="h-intro">
+      <div class="bar"><i></i><i></i><i></i><b>intro.txt</b></div>
+      <div class="body">
+        <h2 id="h-intro">What this chapter is about</h2>
+        <p>Chapter 3 of Organic Chemistry covers acids and bases, and it is the base for every reaction mechanism that comes after it. Two definitions run through it. In Brønsted–Lowry, an acid donates H⁺ and a base accepts it. In Lewis, an acid accepts an electron pair and a base donates one.</p>
+        <p>Then comes the useful part: use pKa to predict which way an equilibrium goes (it favours the weaker acid), and use four factors to explain why one acid beats another.</p>
+        <ul class="chips" aria-label="Four factors that decide acid strength">
+          <li>Element</li><li>Inductive</li><li>Resonance</li><li>Hybridization</li>
+        </ul>
+        <p style="margin:18px 0 0"><a class="pill" href="mindmap.html">Open mind map</a></p>
+      </div>
+    </section>
+
+    <section class="win mon" aria-labelledby="h-anim">
+      <div class="bar"><i></i><i></i><i></i><b>animation.exe</b></div>
+      <div class="body">
+        <h2 id="h-anim">Mechanism animations</h2>
+        <div class="screen" aria-hidden="true">
+          <svg viewBox="0 0 320 170">
+            <text class="t" x="40" y="80">H₂O</text>
+            <text class="t" x="150" y="80">+</text>
+            <text class="t" x="190" y="80">HCl</text>
+            <path d="M60 52 C90 8 170 8 196 50" fill="none" stroke="#ff5a4d" stroke-width="3" stroke-linecap="round"/>
+            <path d="M196 50 l-10 -3 M196 50 l-2 -10" stroke="#ff5a4d" stroke-width="3" stroke-linecap="round"/>
+            <text class="s" x="40" y="130">LONE PAIR → PROTON</text>
+          </svg>
+        </div>
+        <div class="cta">
+          <a class="pill" href="animation.html">Open animation</a>
+          <svg class="cur" viewBox="0 0 26 30" aria-hidden="true"><path d="M2 1 L2 24 L8 18 L12 28 L16 26 L12 17 L21 17 Z" fill="#fff" stroke="#000" stroke-width="2" stroke-linejoin="round"/></svg>
+        </div>
+        <p style="margin:0;font-size:13.5px">Proton transfer, Lewis acid–base and a pKa balance, each stepped through slowly.</p>
+      </div>
+    </section>
+
+    <section class="win c3" aria-labelledby="h-past">
+      <div class="bar"><i></i><i></i><i></i><b>past_year.pdf</b></div>
+      <div class="body">
+        <h2 id="h-past">Sample past year</h2>
+        <ul class="list" id="past"></ul>
+      </div>
+    </section>
+
+    <section class="win c3" aria-labelledby="h-quiz">
+      <div class="bar"><i></i><i></i><i></i><b>quiz.exe</b></div>
+      <div class="body">
+        <h2 id="h-quiz">Quizzes</h2>
+        <p>14 multiple-choice questions from the Chapter 3.1 and 3.2 slides. Answer, submit, and every question comes back with the reason.</p>
+        <a class="pill" href="quiz.html">Start quiz</a>
+      </div>
+    </section>
+
+    <section class="win c3" aria-labelledby="h-vid">
+      <div class="bar"><i></i><i></i><i></i><b>videos.mp4</b></div>
+      <div class="body">
+        <h2 id="h-vid">Recommended videos</h2>
+        <ul class="list" id="vids"></ul>
+      </div>
+    </section>
+
+    <section class="kw" aria-label="Keywords">
+      <div class="kwbox">
+        <div class="kt">KEYWORDS:</div>
+        <p>Brønsted–Lowry, Lewis acid, Lewis base, conjugate base, pKa, Ka, inductive effect, resonance, s-character, nucleophile, electrophile, carbocation</p>
+      </div>
+    </section>
+  </div>
+  <div class="foot">LEARNING PORTFOLIO · CEB1013 · UTP</div>
+</main>
+<script>
+/* EDIT HERE: put your own links. Leave href as "" until you have one. */
+var PAST_YEAR=[
+  {label:"Past year paper, Chapter 3 questions",note:"Acids, bases and pKa",href:""},
+  {label:"Past year paper with answer scheme",note:"For checking your working",href:""}
+];
+var VIDEOS=[
+  {label:"Brønsted–Lowry vs Lewis acids and bases",note:"YouTube search",href:"https://www.youtube.com/results?search_query=bronsted+lowry+vs+lewis+acids+and+bases+organic+chemistry"},
+  {label:"pKa and acid strength in organic chemistry",note:"YouTube search",href:"https://www.youtube.com/results?search_query=organic+chemistry+pKa+acid+strength+ARIO"},
+  {label:"Curved arrows and electron pushing",note:"YouTube search",href:"https://www.youtube.com/results?search_query=organic+chemistry+curved+arrow+mechanism+basics"}
+];
+function fill(id,items){
+  var ul=document.getElementById(id);
+  items.forEach(function(it){
+    var li=document.createElement('li'),el;
+    if(it.href){el=document.createElement('a');el.href=it.href;el.target='_blank';el.rel='noopener'}
+    else{el=document.createElement('span');el.className='todo'}
+    el.textContent=it.label+(it.href?'':' (link to add)');
+    var s=document.createElement('small');s.textContent=it.note;
+    li.appendChild(el);li.appendChild(s);ul.appendChild(li);
+  });
+}
+fill('past',PAST_YEAR);fill('vids',VIDEOS);
+</script>
