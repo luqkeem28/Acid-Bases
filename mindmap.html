@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Acids & Bases Mind Map</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Silkscreen&family=Space+Mono:wght@400;700&family=Pinyon+Script&display=swap">
+<style>
+/* Layout concept: retro-OS windows floating over a sky-and-field wallpaper. Pixel type for labels, mono for reading. */
+:root{
+  --ink:#10162f; --yellow:#fff200; --blue:#1a0fd6; --chrome:#cfcfd5; --glass:rgba(255,255,255,.82);
+  --red:#d8231a; --o1:#ffb25c; --o2:#f2601a; --ok:#1f8a3b; --bad:#c4281c;
+  --pixel:'Silkscreen','Courier New',monospace; --mono:'Space Mono','Courier New',monospace; --script:'Pinyon Script',cursive;
+}
+*{box-sizing:border-box}
+html{color-scheme:light}
+body{
+  margin:0; min-height:100vh; color:var(--ink); font:15px/1.65 var(--mono);
+  padding-left:max(16px,env(safe-area-inset-left,0px)); padding-right:max(16px,env(safe-area-inset-right,0px));
+  padding-block:28px 56px;
+  background-color:#8fb6e2;
+  background-image:
+    radial-gradient(ellipse 16% 5% at 18% 12%,rgba(255,255,255,.9),transparent 72%),
+    radial-gradient(ellipse 20% 6% at 80% 22%,rgba(255,255,255,.85),transparent 72%),
+    radial-gradient(ellipse 14% 4% at 55% 40%,rgba(255,255,255,.7),transparent 72%),
+    linear-gradient(180deg,#365f9f 0,#7fa9dc 36%,#cfe2f4 55%,#6c9a3a 55.2%,#3c7620 100%);
+  background-attachment:fixed;
+}
+.wrap{max-width:1100px;margin:0 auto}
+a{color:var(--blue)}
+:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+.px{font-family:var(--pixel)}
+.win{background:var(--glass);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);border:2px solid #fff;border-radius:10px;box-shadow:0 6px 0 rgba(10,20,50,.3);overflow:hidden;min-width:0}
+.bar{display:flex;align-items:center;gap:7px;padding:8px 12px;background:linear-gradient(#f6f6f8,#c8c8d0);border-bottom:1px solid #9a9aa6}
+.bar i{width:14px;height:14px;border-radius:50%;border:1px solid rgba(0,0,0,.45);display:block;flex:none}
+.bar i:nth-child(1){background:#e4281e}.bar i:nth-child(2){background:#f5c400}.bar i:nth-child(3){background:#25c02b}
+.bar b{font:400 12px var(--pixel);letter-spacing:.06em;margin-left:8px;text-transform:uppercase;color:#3a3a4a}
+.body{padding:18px 20px 22px}
+.body h2{font:400 20px/1.3 var(--pixel);margin:0 0 10px;letter-spacing:.02em}
+.body p{margin:0 0 12px}
+.pill{display:inline-block;padding:9px 22px;border-radius:999px;border:2px solid #fff;background:linear-gradient(var(--o1),var(--o2));color:#2a1200;font:400 15px var(--pixel);text-decoration:none;box-shadow:0 4px 0 rgba(120,40,0,.55),inset 0 2px 0 rgba(255,255,255,.55);cursor:pointer;letter-spacing:.03em}
+.pill:hover{filter:brightness(1.07)}
+.pill:active{transform:translateY(2px);box-shadow:0 2px 0 rgba(120,40,0,.55),inset 0 2px 0 rgba(255,255,255,.55)}
+.pill[disabled]{opacity:.5;cursor:default;filter:grayscale(.4)}
+.pill.alt{background:linear-gradient(#f4f4f6,#c3c3cc);color:var(--ink);box-shadow:0 4px 0 rgba(30,30,60,.45),inset 0 2px 0 #fff}
+.title{margin:0;color:var(--yellow);text-shadow:3px 3px 0 #000,-1px -1px 0 #000,1px -1px 0 #000,-1px 1px 0 #000;line-height:.95}
+.back{display:inline-block;margin-bottom:18px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+
+body{background:#262a45}
+.wrap{max-width:1240px}
+.scroll{overflow-x:auto;padding-bottom:10px}
+.sheet{container-type:inline-size;width:100%;min-width:880px;aspect-ratio:297/210;position:relative;overflow:hidden;border:6px solid #fff;box-shadow:0 10px 30px rgba(0,0,0,.5);
+  background-color:#8fb6e2;
+  background-image:radial-gradient(ellipse 16% 5% at 14% 10%,rgba(255,255,255,.9),transparent 72%),radial-gradient(ellipse 20% 6% at 84% 16%,rgba(255,255,255,.85),transparent 72%),linear-gradient(180deg,#365f9f 0,#7fa9dc 34%,#cfe2f4 52%,#6c9a3a 52.2%,#3c7620 100%)}
+.in{position:absolute;inset:0;display:grid;grid-template-rows:auto minmax(0,1fr) auto;gap:1.4cqw;padding:2cqw 2.2cqw 2cqw;font-size:1.05cqw;line-height:1.45}
+.hero{display:flex;align-items:flex-end;justify-content:space-between;gap:2cqw}
+.title{font-family:var(--pixel);font-size:5cqw;display:flex;align-items:flex-end;gap:.3cqw;margin:0}
+.title .fl{font-family:var(--script);font-size:1.9em;line-height:.6}
+.title{text-shadow:.25cqw .25cqw 0 #000,-.08cqw -.08cqw 0 #000,.08cqw -.08cqw 0 #000,-.08cqw .08cqw 0 #000}
+.tag{font:400 1cqw var(--pixel);background:#000;color:#fff;padding:.5cqw 1cqw;letter-spacing:.06em;box-shadow:.35cqw .35cqw 0 var(--blue)}
+.map{position:relative;display:grid;grid-template-columns:1fr 1.05fr 1fr;gap:3cqw;min-height:0}
+.lines{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0;overflow:visible}
+.lines .o{stroke:#10162f;stroke-width:.6cqw;stroke-linecap:round}
+.lines .i{stroke:#fff;stroke-width:.27cqw;stroke-linecap:round;stroke-dasharray:.2cqw .65cqw}
+.lines .sel{stroke:var(--yellow);stroke-dasharray:none}
+.col{display:flex;flex-direction:column;gap:1.3cqw;position:relative;z-index:1;min-width:0;min-height:0}
+.col.c{text-align:center}
+.head{margin:0;color:var(--yellow);font:400 1.65cqw/1.3 var(--pixel);text-shadow:.15cqw .15cqw 0 #000,-.08cqw -.08cqw 0 #000,.08cqw -.08cqw 0 #000,-.08cqw .08cqw 0 #000}
+.node{flex:1;display:flex;flex-direction:column;width:100%;padding:0;text-align:left;font:inherit;color:var(--ink);cursor:pointer;transition:transform .15s,box-shadow .2s;min-width:0;min-height:0;border-radius:.9cqw;border-width:.18cqw}
+.node:hover{transform:translateY(-.25cqw)}
+.node .bar{padding:.45cqw .9cqw;gap:.5cqw;border-bottom:.35cqw solid var(--g)}
+.node .bar i{width:.95cqw;height:.95cqw}
+.node .bar b{margin-left:.3cqw;font-size:.85cqw;color:var(--g);filter:brightness(.8)}
+.node .nb{flex:1;display:flex;flex-direction:column;justify-content:center;padding:.5cqw 1.1cqw .7cqw}
+.node strong{display:block;font:400 1.4cqw/1.25 var(--pixel);letter-spacing:.02em}
+.node .f{display:block;font-size:1.02cqw;color:#333;margin:.2cqw 0 .25cqw}
+.node .t{display:block;font-weight:700;font-size:1.1cqw;color:var(--g);filter:brightness(.78)}
+.node[aria-pressed=true]{box-shadow:0 0 0 .3cqw var(--g),0 .5cqw 0 rgba(10,20,50,.3);background:#fff}
+.def{--g:#3a6cf0}.fac{--g:#25a244}.mea{--g:#f2601a}
+.screen{flex:1.25;display:flex;flex-direction:column;justify-content:center;border:.7cqw solid #000;outline:.5cqw solid #e9e9ee;background:#0b0b18;margin:.5cqw;padding:.6cqw;color:#fff;position:relative;z-index:1;min-height:0}
+.screen i{display:block;font:400 1cqw var(--pixel);color:#ffe94a;letter-spacing:.08em;font-style:normal}
+.screen big{display:block;font:700 4.6cqw/1.1 var(--mono);white-space:nowrap}
+.screen span{font-size:1.1cqw;color:#d8d8ff}
+.legend{display:flex;gap:.6cqw;justify-content:center;flex-wrap:nowrap}
+.legend span{font:400 .85cqw var(--pixel);padding:.35cqw .8cqw;border:.18cqw solid #fff;color:#fff;text-shadow:.08cqw .08cqw 0 #000;background:var(--g);white-space:nowrap}
+.kwbox{border:.25cqw solid #000;box-shadow:.55cqw .55cqw 0 #000;background:var(--chrome);--c:#25a244}
+.kwbox .kt{background:var(--blue);color:#fff;font:400 1cqw var(--pixel);padding:.5cqw 1.2cqw;letter-spacing:.08em;border-bottom:.25cqw solid var(--c)}
+.kwbox .kb{padding:.9cqw 1.4cqw 1cqw;display:grid;gap:.5cqw}
+.kwbox h2{margin:0;font:400 1.4cqw var(--pixel)}
+.kwbox p{margin:0;font-size:1.05cqw}
+.ex{display:flex;flex-wrap:wrap;gap:.5cqw}
+.ex span{background:#fff;border:.18cqw solid #000;padding:.15cqw .8cqw;font-size:1cqw}
+.hint{margin:14px 0 0;text-align:center;font:400 12px var(--pixel);color:#fff;letter-spacing:.05em}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <a class="pill alt back" href="index.html">← Portfolio</a>
+  <div class="scroll"><div class="sheet"><div class="in">
+  <header class="hero">
+    <h1 class="title"><span class="fl">M</span><span>IND MAP</span></h1>
+    <div class="tag">ACIDS &amp; BASES · CHAPTER 3</div>
+  </header>
+
+  <div class="map" id="map">
+    <svg class="lines" id="lines" aria-hidden="true"></svg>
+
+    <div class="col">
+      <button class="node win def" data-k="bl" aria-pressed="false"><span class="bar"><i></i><i></i><i></i><b>what it is</b></span><span class="nb"><strong>Brønsted–Lowry</strong><span class="f">HCl + H₂O → H₃O⁺ + Cl⁻</span><span class="t">H⁺ moves: acid gives, base takes</span></span></button>
+      <button class="node win def" data-k="lewis" aria-pressed="false"><span class="bar"><i></i><i></i><i></i><b>what it is</b></span><span class="nb"><strong>Lewis</strong><span class="f">BF₃ + :NH₃ → F₃B⁻–N⁺H₃</span><span class="t">e⁻ pair moves: acid takes</span></span></button>
+      <button class="node win def" data-k="conj" aria-pressed="false"><span class="bar"><i></i><i></i><i></i><b>what it is</b></span><span class="nb"><strong>Conjugate pair</strong><span class="f">HA ⇌ H⁺ + A⁻</span><span class="t">lose H⁺ → conjugate base</span></span></button>
+    </div>
+
+    <div class="col c">
+      <p class="head">Stable A⁻ = strong acid</p>
+      <div class="screen" id="core"><i>ACID</i><big>H–A</big><span>lose H⁺, leave A⁻</span></div>
+      <button class="node win mea" data-k="pka" aria-pressed="false"><span class="bar"><i></i><i></i><i></i><b>how to measure</b></span><span class="nb"><strong>pKa</strong><span class="f">pKa = −log Ka</span><span class="t">smaller pKa = stronger acid</span></span></button>
+      <div class="legend"><span class="def">what it is</span><span class="fac">why A⁻ is stable</span><span class="mea">how to measure</span></div>
+    </div>
+
+    <div class="col">
+      <button class="node win fac" data-k="element" aria-pressed="false"><span class="bar"><i></i><i></i><i></i><b>why A⁻ is stable</b></span><span class="nb"><strong>Element</strong><span class="f">C–H 50 · N–H 38 · O–H 16 · H–F 3.2</span><span class="t">more electronegative or bigger A</span></span></button>
+      <button class="node win fac" data-k="inductive" aria-pressed="false"><span class="bar"><i></i><i></i><i></i><b>why A⁻ is stable</b></span><span class="nb"><strong>Inductive</strong><span class="f">CF₃CH₂OH 12.4 vs CH₃CH₂OH 16</span><span class="t">pulls e⁻ through σ bonds</span></span></button>
+      <button class="node win fac" data-k="resonance" aria-pressed="false"><span class="bar"><i></i><i></i><i></i><b>why A⁻ is stable</b></span><span class="nb"><strong>Resonance</strong><span class="f">CH₃COOH 4.8 vs CH₃CH₂OH 16</span><span class="t">charge spread over 2 atoms</span></span></button>
+      <button class="node win fac" data-k="hybrid" aria-pressed="false"><span class="bar"><i></i><i></i><i></i><b>why A⁻ is stable</b></span><span class="nb"><strong>Hybridization</strong><span class="f">sp 25 · sp² 44 · sp³ 50</span><span class="t">more s-character</span></span></button>
+    </div>
+  </div>
+
+  <section class="kwbox" id="detail" aria-live="polite">
+    <div class="kt" id="dk">DETAIL:</div>
+    <div class="kb"><h2 id="dh"></h2><p id="dp"></p><div class="ex" id="dx"></div></div>
+  </section>
+  </div></div></div>
+  <p class="hint">A4 LANDSCAPE SHEET · TAP A WINDOW FOR DETAIL · SCROLL SIDEWAYS ON A PHONE</p>
+</main>
+<script>
+var D={
+ bl:{t:'Brønsted–Lowry acids and bases',p:'An acid is any species that donates H⁺ and must contain an H that can dissociate. A base accepts H⁺ and needs at least one lone pair to form the new bond. The curved arrow starts at the lone pair.',e:['HCl + H₂O → H₃O⁺ + Cl⁻','H₃O⁺ is the conjugate acid','Cl⁻ is the conjugate base']},
+ lewis:{t:'Lewis acids and bases',p:'A Lewis acid accepts an electron pair and a Lewis base donates one, so this is more general than Brønsted–Lowry. Electron-poor species (electrophiles) react with electron-rich species (nucleophiles). BF₃, AlCl₃ and carbocations are only Lewis acids.',e:['BF₃ has no filled valence shell','Carbocation: 6 valence electrons','Carbanion: a Lewis base']},
+ conj:{t:'Conjugate acid–base pairs',p:'The species left after an acid loses its proton is its conjugate base. The species formed when a base accepts a proton is its conjugate acid. Acidity and basicity are inverse: a strong acid has a weak conjugate base, and a strong base has a weak conjugate acid.',e:['HCl (−7) → Cl⁻','CH₃COOH (4.8) → CH₃COO⁻','CH₄ (50) → CH₃⁻, a very strong base']},
+ pka:{t:'pKa and the direction of equilibrium',p:'pKa = −log Ka, and organic acids typically fall between +5 and +50. The smaller the pKa, the stronger the acid. In any proton transfer the equilibrium favours the weaker acid, the one with the higher pKa.',e:['HC≡CH (25) + ⁻NH₂ → products','NH₃ is 38, so it is the weaker acid','HI −10 · HBr −9 · HCl −7']},
+ element:{t:'Factor 1: Element effect',p:'The most important factor is where A sits in the periodic table. Across a row, more electronegative A gives a stronger acid. Down a column, size beats electronegativity: a larger anion is more stable, so HBr is a stronger acid than HF.',e:['Row: C–H 50 → N–H 38 → O–H 16 → H–F 3.2','Column: HF 3.2 → HCl −7 → HBr −9 → HI −10']},
+ inductive:{t:'Factor 2: Inductive effect',p:'Electronegative atoms pull electron density through σ bonds. Near the acidic site, that pull stabilizes the negative charge of the conjugate base, so the acid is stronger. The effect fades with distance.',e:['CH₃CH₂OH: pKa 16','CF₃CH₂OH: pKa 12.4','Cl₂CHCH₂OH is stronger than Cl₂CHCH₂CH₂OH']},
+ resonance:{t:'Factor 3: Resonance effect',p:'If the conjugate base is resonance stabilized, the acid is stronger. Ethoxide keeps its negative charge on one O. Acetate has two resonance structures, so the charge is delocalized over two O atoms.',e:['Ethanol: 1 Lewis structure, pKa 16','Acetic acid: 2 resonance structures, pKa 4.8']},
+ hybrid:{t:'Factor 4: Hybridization effect',p:'The higher the percent s-character of the orbital holding the lone pair, the more stable the conjugate base and the stronger the acid. Electrons in an s orbital sit closer to the nucleus.',e:['sp³ (25% s): ethane 50','sp² (33% s): ethene 44','sp (50% s): ethyne 25']}
+};
+var colors={def:'#3a6cf0',fac:'#25a244',mea:'#f2601a'};
+var nodes=[].slice.call(document.querySelectorAll('.node')),sel=null,det=document.getElementById('detail');
+function pick(n){
+  nodes.forEach(function(x){x.setAttribute('aria-pressed',x===n)});
+  var d=D[n.dataset.k],cls=n.classList.contains('def')?'def':n.classList.contains('fac')?'fac':'mea';
+  det.style.setProperty('--c',colors[cls]);
+  document.getElementById('dk').textContent='DETAIL: '+n.querySelector('strong').textContent.toUpperCase();
+  document.getElementById('dh').textContent=d.t;
+  document.getElementById('dp').textContent=d.p;
+  var ex=document.getElementById('dx');ex.innerHTML='';
+  d.e.forEach(function(s){var sp=document.createElement('span');sp.textContent=s;ex.appendChild(sp)});
+  sel=n;draw();
+}
+nodes.forEach(function(n){n.addEventListener('click',function(){pick(n)})});
+var svg=document.getElementById('lines'),map=document.getElementById('map'),core=document.getElementById('core'),NS='http://www.w3.org/2000/svg';
+function ln(x1,y1,x2,y2,cls){var l=document.createElementNS(NS,'line');l.setAttribute('x1',x1);l.setAttribute('y1',y1);l.setAttribute('x2',x2);l.setAttribute('y2',y2);l.setAttribute('class',cls);svg.appendChild(l)}
+function draw(){
+  svg.innerHTML='';
+  if(matchMedia('(max-width:820px)').matches)return;
+  var m=map.getBoundingClientRect(),c=core.getBoundingClientRect(),cx=c.left+c.width/2-m.left,cy=c.top+c.height/2-m.top;
+  nodes.forEach(function(n){
+    var r=n.getBoundingClientRect(),x=r.left+r.width/2-m.left,y=r.top+r.height/2-m.top;
+    ln(cx,cy,x,y,'o');ln(cx,cy,x,y,'i'+(n===sel?' sel':''));
+  });
+}
+addEventListener('resize',draw);if(window.ResizeObserver)new ResizeObserver(draw).observe(document.querySelector('.sheet'));
+if(document.fonts&&document.fonts.ready)document.fonts.ready.then(draw);
+pick(nodes.filter(function(n){return n.dataset.k==='element'})[0]);
+</script>
+</body>
+</html>
